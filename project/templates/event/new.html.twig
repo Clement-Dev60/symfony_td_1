@@ -1,0 +1,47 @@
+    {{ form_start(form) }}
+
+        <div>
+            {{ form_label(form.promo_id) }}
+            {{ form_widget(form.promo_id) }}
+            {{ form_errors(form.promo_id) }}
+        </div>
+
+        <div>
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+            {{ form_errors(form.title) }}
+        </div>
+
+        <div>
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+            {{ form_errors(form.description) }}
+        </div>
+
+        <div>
+            {{ form_label(form.start_date) }}
+            {{ form_widget(form.start_date) }}
+            {{ form_errors(form.start_date) }}
+        </div>
+
+        <div>
+            {{ form_label(form.end_date) }}
+            {{ form_widget(form.end_date) }}
+            {{ form_errors(form.end_date) }}
+        </div>
+
+        <div>
+            {{ form_label(form.classroom) }}
+            {{ form_widget(form.classroom) }}
+            {{ form_errors(form.classroom) }}
+        </div>
+
+        <div>
+            {{ form_label(form.speaker) }}
+            {{ form_widget(form.speaker) }}
+            {{ form_errors(form.speaker) }}
+        </div>
+
+        <button type="submit">Créer l'événement</button>
+
+    {{ form_end(form) }}

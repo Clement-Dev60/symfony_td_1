@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Liste des news</h1>
+
+    <a href="{{ path('admin') }}">Créer une news</a>
+
+    {% if newsList is empty %}
+        <p>Aucune news pour le moment.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Titre</th>
+                    <th>Contenu</th>
+                    <th>Source</th>
+                    <th>Date de début</th>
+                    <th>Date de fin</th>
+                    <th>Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for news in newsList %}
+                    <tr>
+                        <td>{{ news.type }}</td>
+                        <td>{{ news.title }}</td>
+                        <td>{{ news.content }}</td>
+                        <td>{{ news.source ?? '-' }}</td>
+                        <td>{{ news.startDate|date('d/m/Y') }}</td>
+                        <td>{{ news.endDate ? news.endDate|date('d/m/Y') : '-' }}</td>
+                        <td>{{ news.active ? 'Oui' : 'Non' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}

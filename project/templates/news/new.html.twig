@@ -1,0 +1,48 @@
+    {{ form_start(form) }}
+
+        <div>
+            {{ form_label(form.type) }}
+            {{ form_widget(form.type) }}
+            {{ form_errors(form.type) }}
+        </div>
+
+        <div>
+            {{ form_label(form.title) }}
+            {{ form_widget(form.title) }}
+            {{ form_errors(form.title) }}
+        </div>
+
+        <div>
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content) }}
+            {{ form_errors(form.content) }}
+        </div>
+
+        <div>
+            {{ form_label(form.source) }}
+            {{ form_widget(form.source) }}
+            {{ form_errors(form.source) }}
+        </div>
+
+        <div>
+            {{ form_label(form.start_date) }}
+            {{ form_widget(form.start_date) }}
+            {{ form_errors(form.start_date) }}
+        </div>
+
+        <div>
+            {{ form_label(form.end_date) }}
+            {{ form_widget(form.end_date) }}
+            {{ form_errors(form.end_date) }}
+        </div>
+
+        <div>
+            {{ form_widget(form.active) }}
+            {{ form_label(form.active) }}
+            {{ form_errors(form.active) }}
+        </div>
+
+        <button type="submit">Publier</button>
+
+    {{ form_end(form) }}
+

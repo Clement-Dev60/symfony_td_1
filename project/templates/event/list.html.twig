@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Liste des event</h1>
+
+    <a href="{{ path('admin') }}">Créer un event</a>
+
+    {% if eventList is empty %}
+        <p>Aucun event pour le moment.</p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Date de début</th>
+                    <th>Date de fin</th>
+                    <th>Salle de classe</th>
+                    <th>Intervenant</th>
+                    <th>Promo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in eventList %}
+                    <tr>
+                        <td>{{ event.title }}</td>
+                        <td>{{ event.description }}</td>
+                        <td>{{ event.startDate|date('d/m/Y') }}</td>
+                        <td>{{ event.endDate ? event.endDate|date('d/m/Y') : '-' }}</td>
+                        <td>{{ event.classroom}}</td>
+                        <td>{{ event.speaker}}</td>
+                        <td>{{ event.promo_id}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+{% endblock %}

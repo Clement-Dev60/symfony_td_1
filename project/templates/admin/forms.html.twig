@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">{{ message }}</div>
+    {% endfor %}
+
+    <h1>Créer une news</h1>
+    {% include 'news/new.html.twig' with { form: newsForm } %}
+    <a href="{{ path('news_list') }}">Voir les news</a>
+    <hr>
+
+    <h1>Créer un événement</h1>
+    {% include 'event/new.html.twig' with { form: eventForm } %}
+    <a href="{{ path('event_list') }}">Voir les events</a>
+
+    <h2>Flux RSS</h2>
+
+    {% if rssItems is empty %}
+        <p>Aucun article disponible.</p>
+    {% else %}
+        {% for item in rssItems %}
+        <div>
+            <h3>
+                <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+            </h3>
+            <p>{{ item.description }}</p>
+            <small>{{ item.pubDate }}</small>
+            </div>
+            <hr>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
